@@ -28,12 +28,14 @@ const index = (props) => {
           title={
             <View style={{flexDirection: 'row'}}>
               <Text>Primary</Text>
-              <TouchableOpacity  style={{marginLeft:Dimensions.get("screen").width /1.5}} onPress={_onDelete}>
+              <TouchableOpacity
+                style={{marginLeft: Dimensions.get('screen').width / 1.5}}
+                onPress={_onDelete}>
                 <Icons name="trash" color={color.dark} size={20} />
               </TouchableOpacity>
             </View>
           }
-          content={phone?`+62 ${phone}`:" - "}
+          content={phone ? `+62 ${phone}` : ' - '}
         />
       </ScrollView>
     </>

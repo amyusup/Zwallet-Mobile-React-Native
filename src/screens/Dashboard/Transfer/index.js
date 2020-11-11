@@ -27,7 +27,7 @@ const index = (props) => {
   useEffect(() => {
     dispatch(getFindUsers(token, 1, name));
   }, [dispatch, name, token, loadMore]);
-
+ 
   const loadMore = () => {
     setLoading(true);
     setTimeout(() => {

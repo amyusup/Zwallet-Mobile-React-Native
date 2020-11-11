@@ -29,6 +29,9 @@ const CreatePin = (props) => {
             onChangeText={(text)=>setPin(text)}
             style={{marginVertical:20}}
         />
+         </View>
+      
+    </ScrollView>
        <Button
           uppercase={false}
           style={s.button}
@@ -39,9 +42,6 @@ const CreatePin = (props) => {
           >
           <Text style={{color:color.white}}>Confirm</Text>
         </Button>
-         </View>
-      
-    </ScrollView>
     </>
   );
 };

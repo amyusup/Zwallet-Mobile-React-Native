@@ -3,7 +3,7 @@ import {TextInput, View, Dimensions, StyleSheet} from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
 import color from '../../../styles/constant';
 const index = (props) => {
-  const {placeholder, value, onChange, icon,style, ...input} = props;
+  const {placeholder, value, onChange, icon,style, inputRef, keyType, onSubmit,  ...input} = props;
   const [onFocus, setFocus] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const {width} = Dimensions.get('screen');
@@ -27,6 +27,9 @@ const index = (props) => {
         size={width / 16}
       />
       <TextInput
+        returnKeyType={keyType}
+        onSubmitEditing={onSubmit}
+        ref={inputRef?inputRef:null}
         placeholder={placeholder}
         value={value}
         onChangeText={onChange}
@@ -40,7 +43,7 @@ const index = (props) => {
 
       {input.secureTextEntry ? (
         <Icons
-          name="eye-off"
+          name={show ?"eye-off":"eye"}
           color={show ? color.primary : color.grey}
           size={width / 16}
           onPress={() => setShow(!show)}

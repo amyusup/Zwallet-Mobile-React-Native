@@ -15,7 +15,7 @@ import {AuthLogin} from '../../../redux/actions/auth';
 const SignIn = (props) => {
   const [email, setEmail] = React.useState('admin@gmail.com');
   const [password, setPassword] = React.useState('123123');
-
+  const inputPassword = React.useRef()
   const dispatch = useDispatch();
 
   const _onSubmit = () => {
@@ -33,13 +33,20 @@ const SignIn = (props) => {
             Zwallet.
           </Text>
           <InputBorderenBottom
+            keyType="next"
+            onSubmit={() => inputPassword.current.focus()}
             icon="mail"
             placeholder="Enter your e-mail"
             value={email}
             onChange={(text) => setEmail(text)}
             style={{marginVertical: 10}}
+            returnKeyType="send"
           />
+          
           <InputBorderenBottom
+           inputRef={inputPassword}
+            keyType="done"
+            onSubmit={_onSubmit}
             icon="lock"
             placeholder="Enter your password"
             value={password}
