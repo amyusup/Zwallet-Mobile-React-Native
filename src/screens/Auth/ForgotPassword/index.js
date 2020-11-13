@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, View, Text, StatusBar} from 'react-native';
-import {InputBorderenBottom} from '../../../components/Input';
+import {InputBorderedBottom} from '../../../components/Input';
 import s from '../style';
 import color from '../../../styles/constant';
 import {Button} from 'react-native-paper';
@@ -19,7 +19,7 @@ const ForgotPassword = (props) => {
         <Text style={[s.subTitle]}>
           Enter your Zwallet e-mail so we can send you a password reset link.
         </Text>
-        <InputBorderenBottom
+        <InputBorderedBottom
           icon="mail"
           placeholder="Enter your e-mail"
           value={email}

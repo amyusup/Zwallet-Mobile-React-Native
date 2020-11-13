@@ -27,7 +27,7 @@ const index = (props) => {
   useEffect(() => {
     dispatch(getFindUsers(token, 1, name));
   }, [dispatch, name, token, loadMore]);
- 
+
   const loadMore = () => {
     setLoading(true);
     setTimeout(() => {
@@ -39,7 +39,7 @@ const index = (props) => {
   return (
     <>
       <StatusBar backgroundColor={color.secondary} barStyle="dark-content" />
-      <ScrollView style={s.page} onScrollEndDrag={loadMore}>
+      <ScrollView style={s.page} onScrollEndDrag={() => loadMore()}>
         <View style={{marginHorizontal: 20}}>
           <InputBordered
             icon="search"
@@ -51,8 +51,8 @@ const index = (props) => {
         </View>
 
         {!findUser.length ? (
-          <TouchableOpacity style={s.card} >
-            <Text style={{alignSelf:"center"}}>Data is empty</Text>
+          <TouchableOpacity style={s.card}>
+            <Text style={{alignSelf: 'center'}}>Data is empty</Text>
           </TouchableOpacity>
         ) : (
           findUser.map((item, index) => {
@@ -62,13 +62,21 @@ const index = (props) => {
                 photo={item.photo}
                 name={item.name}
                 phone={item.phone ? `+62 ${item.phone}` : '-'}
-                onPress={props.navigation.navigate("Transfer")}
+                cardPress={() =>
+                  props.navigation.navigate('InputAmount', {
+                    key: index,
+                    id: item.id,
+                    photo: item.photo,
+                    name: item.name,
+                    phone: item.phone ? `+62 ${item.phone}` : '-',
+                  })
+                }
               />
             );
           })
         )}
         {loading ? (
-          <View style={{alignSelf:"center"}}>
+          <View style={{alignSelf: 'center'}}>
             <Text>Loading...</Text>
           </View>
         ) : (

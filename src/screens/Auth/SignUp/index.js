@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
-import {InputBorderenBottom} from '../../../components/Input';
+import {InputBorderedBottom} from '../../../components/Input';
 import s from '../style';
 import color from '../../../styles/constant';
 import {Button} from 'react-native-paper';
@@ -34,7 +34,7 @@ const SignUp = (props) => {
           <Text style={[s.subTitle]}>
             Create your account to access Zwallet.
           </Text>
-          <InputBorderenBottom
+          <InputBorderedBottom
             keyType="next"
             onSubmit={() => inputEmail.current.focus()}
             icon="user"
@@ -43,7 +43,7 @@ const SignUp = (props) => {
             onChange={(text) => setName(text)}
             style={{marginVertical: 10}}
           />
-          <InputBorderenBottom
+          <InputBorderedBottom
             inputRef={inputEmail}
             keyType="next"
             onSubmit={() => inputPassword.current.focus()}
@@ -53,7 +53,7 @@ const SignUp = (props) => {
             onChange={(text) => setEmail(text)}
             style={{marginVertical: 10}}
           />
-          <InputBorderenBottom
+          <InputBorderedBottom
             inputRef={inputPassword}
             keyType="done"
             onSubmit={_onSubmit}

@@ -1,4 +1,4 @@
-package com.zwallet; // ← Make sure that is your package name
+package com.amy.zwallet; // ← Make sure that is your package name
 
 import android.content.Intent;
 import android.os.Bundle;

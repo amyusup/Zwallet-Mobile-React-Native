@@ -14,6 +14,9 @@ import Transfer from './Dashboard/Transfer'
 import PersonalInfo from './Dashboard/PersonalInfo'
 import ManagePhone from './Dashboard/ManagePhone'
 import AddPhone from './Dashboard/AddPhone'
+import InputAmount from './Dashboard/InputAmount'
+import InputPin from './Dashboard/InputPin'
+import TransferStatus from './Dashboard/TransferStatus'
 
 export {
     SignIn,
@@ -30,4 +33,7 @@ export {
     PersonalInfo,
     ManagePhone,
     AddPhone,
+    InputAmount,
+    InputPin,
+    TransferStatus
 }

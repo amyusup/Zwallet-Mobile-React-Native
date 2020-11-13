@@ -1,4 +1,4 @@
-package com.zwallet;
+package com.amy.zwallet;
 
 import org.devio.rn.splashscreen.SplashScreen;
 import android.os.Bundle;

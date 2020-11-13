@@ -2,7 +2,7 @@ import React from 'react';
 import {StatusBar, ScrollView, Text, View, Dimensions} from 'react-native';
 import s from '../style';
 import color from '../../../styles/constant';
-import {InputBorderenBottom} from '../../../components/Input';
+import {InputBorderedBottom} from '../../../components/Input';
 import {useDispatch, useSelector} from 'react-redux';
 import { addPhone } from '../../../redux/actions/user'
 import {Button} from 'react-native-paper';
@@ -23,7 +23,7 @@ const index = (props) => {
             Add at least one phone number for the transfer ID so you can start
             transfering your money to another user.
           </Text>
-          <InputBorderenBottom
+          <InputBorderedBottom
             icon="phone"
             placeholder="Enter your phone number"
             value={phone}

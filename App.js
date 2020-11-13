@@ -28,6 +28,7 @@ const theme = {
 };
 
 const App = () => {
+  
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

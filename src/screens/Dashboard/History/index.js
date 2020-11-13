@@ -6,7 +6,7 @@ import HistoryCard from '../../../components/Card/History';
 import {useSelector, useDispatch} from 'react-redux';
 import {getHistories} from '../../../redux/actions/user';
 const index = (props) => {
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [offset, setOffset] = useState(2);
 
   const {token} = useSelector((state) => state.Auth);
@@ -22,40 +22,42 @@ const index = (props) => {
 
   const loadMore = () => {
     setLoading(true);
-   
+
     setTimeout(() => {
       setLoading(false);
       setOffset(offset + 1);
-      dispatch(getHistories(token, offset+1, false));
+      dispatch(getHistories(token, offset + 1, false));
     }, 1500);
   };
   return (
     <>
       <StatusBar backgroundColor={color.secondary} barStyle="dark-content" />
       <ScrollView style={s.page} onScrollEndDrag={loadMore}>
-        <Text style={{marginLeft: 20, marginVertical:20}}>Transaction History</Text>
+        <Text style={{marginLeft: 20, marginVertical: 20}}>
+          Transaction History
+        </Text>
         {!history.history.length ? (
           <TouchableOpacity style={s.card}>
-            <Text style={{alignSelf:"center"}}>Data is empty</Text>
+            <Text style={{alignSelf: 'center'}}>Data is empty</Text>
           </TouchableOpacity>
         ) : (
-            history.history.map((item, index) => {
-              return (
-                <HistoryCard
+          history.history.map((item, index) => {
+            return (
+              <HistoryCard
                 key={index}
-                  photo={item.photo}
-                  name={item.name}
-                  type={item.type}
-                  isIncome={item.is_income}
-                  amount={
-                    item.type === 'transfer' ? item.amount : item.amount_topup
-                  }
-                />
-              );
-            })
+                photo={item.photo}
+                name={item.name}
+                type={item.type}
+                isIncome={item.is_income}
+                amount={
+                  item.type === 'transfer' ? item.amount : item.amount_topup
+                }
+              />
+            );
+          })
         )}
-         {loading ? (
-          <View style={{alignSelf:"center"}}>
+        {loading ? (
+          <View style={{alignSelf: 'center'}}>
             <Text>Loading...</Text>
           </View>
         ) : (

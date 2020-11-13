@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, View, Text, StatusBar} from 'react-native';
-import {InputBorderenBottom} from '../../../components/Input';
+import {InputBorderedBottom} from '../../../components/Input';
 import s from '../style';
 import color from '../../../styles/constant';
 import {Button} from 'react-native-paper';
@@ -21,7 +21,7 @@ const CreatePassword = (props) => {
           <Text style={[s.subTitle]}>
             Create and confirm your new password so you can login to Zwallet.
           </Text>
-          <InputBorderenBottom
+          <InputBorderedBottom
             icon="lock"
             placeholder="Create new password"
             value={password}
@@ -29,7 +29,7 @@ const CreatePassword = (props) => {
             style={{marginVertical: 10}}
             secureTextEntry={true}
           />
-          <InputBorderenBottom
+          <InputBorderedBottom
             icon="lock"
             placeholder="Confirm new password"
             value={passwordRepeat}

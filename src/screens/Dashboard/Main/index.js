@@ -5,7 +5,8 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
-  Dimensions
+  ToastAndroid,
+  BackHandler,
 } from 'react-native';
 import s from '../style';
 import color from '../../../styles/constant';
@@ -20,6 +21,34 @@ const Main = (props) => {
   const {token} = useSelector((state) => state.Auth);
   const {userdata, history, error} = useSelector((state) => state.User);
   const {name, balance, phone, email, photo} = userdata;
+
+  const [exitApp, setExitApp] = React.useState(0)
+
+  const backAction = () => {
+    setTimeout(() => {
+      setExitApp(0);
+    }, 2000); // 2 seconds to tap second-time
+
+    if (exitApp === 0) {
+      setExitApp(exitApp + 1);
+
+      ToastAndroid.show('Click again to exit the app', ToastAndroid.SHORT);
+    } else if (exitApp === 1) {
+      BackHandler.exitApp();
+    }
+    return true;
+  };
+  React.useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    // cleanup function
+    return () => {
+      backHandler.remove();
+    };
+  }, [exitApp]);
 
   const dispatch = useDispatch();
   React.useEffect(() => {

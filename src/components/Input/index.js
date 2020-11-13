@@ -1,5 +1,6 @@
-import InputBorderenBottom from './BorderedBottom'
+import InputBorderedBottom from './BorderedBottom'
 import InputPinBorder from './PinBorder'
 import InputBordered from './Bordered'
+import InputBorderless from './Borderless'
 
-export { InputBorderenBottom, InputPinBorder, InputBordered }
+export { InputBorderedBottom, InputPinBorder, InputBordered, InputBorderless }

@@ -15,6 +15,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {setPhoto} from '../../../redux/actions/user';
 import ImagePicker from 'react-native-image-picker';
 import {Modal, Portal, IconButton} from 'react-native-paper';
+import Icons from 'react-native-vector-icons/Feather';
 const index = (props) => {
   const {token} = useSelector((state) => state.Auth);
   const {userdata} = useSelector((state) => state.User);
@@ -73,7 +74,8 @@ const index = (props) => {
               alignItems: 'center',
               marginRight: 10,
             }}>
-            <IconButton icon="pencil-outline" color={color.dark} size={10} />
+            {/* <IconButton icon="" color={color.dark} size={10} /> */}
+            <Icons name="edit-2" color={color.dark} size={14} />
             <Text>Edit</Text>
           </TouchableOpacity>
           <Text style={{fontFamily: 'NunitoSans-Bold', marginBottom: 5}}>
