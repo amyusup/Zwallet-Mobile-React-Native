@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "18652091370",
+    "firebase_url": "https://zwallet-amy.firebaseio.com",
+    "project_id": "zwallet-amy",
+    "storage_bucket": "zwallet-amy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18652091370:android:d05604fa7140bfec41d893",
+        "android_client_info": {
+          "package_name": "com.amy.zwallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18652091370-jb1gf6vt7ekpgu7vr1bcmlpalvlqf9gr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYqZ4GFKZagNSzptl2PS5u4AicKKufi_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18652091370-jb1gf6vt7ekpgu7vr1bcmlpalvlqf9gr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
