@@ -13,6 +13,7 @@ const InputAmount = (props) => {
   const [amount, setAmount] = React.useState('');
   const [note, setNote] = React.useState('');
   const { userdata } = useSelector(state => state.User)
+  const [balance, setBalance] = React.useState(userdata.balance);
   const _onSubmit = () => {
     // dispatch(createPin(payload.token, pin, props));
     props.navigation.navigate('InputPin', {
@@ -24,9 +25,11 @@ const InputAmount = (props) => {
       note: note,
     });
   };
-  // const _changeAmount = text => {
-  //   setAmount(text.replace(/[^0-9]/g, ''))
-  //   text = "Rp" + currency(text.replace(/[^0-9]/g, ''))
+
+  // const _changeAmount = (text) => {
+  //   setAmount(text)
+  //   // const temp = text
+  //   // setBalance(balance-amount)
   // }
   return (
     <>
@@ -44,15 +47,15 @@ const InputAmount = (props) => {
         <View style={{alignSelf: 'center'}}>
           <InputBorderless
             placeholder="0.00"
-            onChange={(text) => setAmount(text)}
+            onChange={(text)=> setAmount(text)}
             value={amount}
             style={{marginVertical: 20}}
             keyboard="number-pad"
           />
           <View style={{alignSelf:"center"}}>
 
-          {userdata.balance ? (
-            <Text>Rp. {currency(parseInt(userdata.balance))} Avaliable</Text>
+          {balance ? (
+            <Text>Rp. {currency(parseInt(balance-amount))} Avaliable</Text>
           ) : (
             <Text>Rp. 0 Avaliable</Text>
           )}
@@ -73,7 +76,7 @@ const InputAmount = (props) => {
         uppercase={false}
         style={s.button100}
         mode="contained"
-        disabled={ amount.length < 1 || note.length < 1|| amount > userdata.balance ? true : false}
+        disabled={ amount.length < 1 || note.length < 1? true : false}
         onPress={_onSubmit}>
         <Text style={{color: color.white}}>Continue</Text>
       </Button>

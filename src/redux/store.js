@@ -10,7 +10,7 @@ import reducers from './reducer'
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  // whitelist: ["Auth"]
+  whitelist: ["Auth"]
 }
 
 const persistReducers = persistReducer(persistConfig, reducers)

@@ -26,7 +26,7 @@ const index = (props) => {
     setTimeout(() => {
       setLoading(false);
       setOffset(offset + 1);
-      dispatch(getHistories(token, offset + 1, false));
+      dispatch(getHistories(token, offset, false));
     }, 1500);
   };
   return (

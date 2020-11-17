@@ -17,7 +17,7 @@ const index = (props) => {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [hasMore, setMore] = useState(true);
-  const [offset, setOffset] = useState(1);
+  const [offset, setOffset] = useState(2);
 
   const {token} = useSelector((state) => state.Auth);
   const {findUser, error} = useSelector((state) => state.User);
@@ -26,14 +26,14 @@ const index = (props) => {
 
   useEffect(() => {
     dispatch(getFindUsers(token, 1, name));
-  }, [dispatch, name, token, loadMore]);
+  }, [dispatch, name, token]);
 
   const loadMore = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
       setOffset(offset + 1);
-      dispatch(getFindUsers(token, offset + 1, name, false));
+      dispatch(getFindUsers(token, offset, name, false));
     }, 1500);
   };
   return (
