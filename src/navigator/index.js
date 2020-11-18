@@ -20,7 +20,8 @@ import {
   InputAmount,
   InputPin,
   TransferStatus,
-  Details
+  Details,
+  ChangePassword
 } from '../screens';
 import {useSelector} from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
@@ -95,6 +96,7 @@ const DashboardStack = () => {
       <Stack.Screen name="InputPin" component={InputPin} options={{ headerStyle: {backgroundColor: color.secondary, elevation:0}, headerTitle:"Enter Your PIN"}} />
       <Stack.Screen name="TransferStatus" component={TransferStatus} options={{headerShown: false}}  />
       <Stack.Screen name="Details" component={Details} options={{ headerStyle: {backgroundColor: color.secondary, elevation:0}, headerTitle:"Transaction"}}  />
+      <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ headerStyle: {backgroundColor: color.secondary, elevation:0}, headerTitle:"Change Password"}}  />
     </Stack.Navigator>
   );
 };

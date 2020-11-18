@@ -218,7 +218,7 @@ export const addPhoneMobile = (token, phone, history) => (dispatch) => {
     .catch((err) => handleError(err, dispatch));
 };
 
-export const changePassword = (token, data, history) => (dispatch) => {
+export const changePassword = (token, data, props) => (dispatch) => {
   dispatch(options(SETUSERERROR, ''));
 
   axios
@@ -227,8 +227,14 @@ export const changePassword = (token, data, history) => (dispatch) => {
         Authorization: `Bearer ${token}`,
       },
     })
-    .then((res) => history.push(`/dashboard/profile`))
-    .catch((err) => handleError(err, dispatch));
+    .then((res) => {
+      props.navigation.navigate('Profile');
+      ToastAndroid.show(res.data.message, ToastAndroid.SHORT);
+    })
+    .catch((err) => {
+      handleError(err, dispatch)
+      ToastAndroid.show(err.response.data.message, ToastAndroid.SHORT); 
+    })
 };
 
 export const createPin = (token, pin, props) => (dispatch) => {

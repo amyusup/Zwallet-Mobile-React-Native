@@ -89,7 +89,7 @@ const index = (props) => {
           icon="arrow-right"
         />
         <ButtonProfile
-          onPress={() => props.navigation.navigate('Main')}
+          onPress={() => props.navigation.navigate('ChangePassword')}
           text="Change Password"
           icon="arrow-right"
         />

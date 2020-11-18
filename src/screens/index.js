@@ -18,6 +18,7 @@ import InputAmount from './Dashboard/InputAmount'
 import InputPin from './Dashboard/InputPin'
 import TransferStatus from './Dashboard/TransferStatus'
 import Details from './Dashboard/Details'
+import ChangePassword from './Dashboard/ChangePassword'
 
 export {
     SignIn,
@@ -37,5 +38,6 @@ export {
     InputAmount,
     InputPin,
     TransferStatus,
-    Details
+    Details,
+    ChangePassword
 }
