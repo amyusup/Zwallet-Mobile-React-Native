@@ -17,6 +17,7 @@ import AddPhone from './Dashboard/AddPhone'
 import InputAmount from './Dashboard/InputAmount'
 import InputPin from './Dashboard/InputPin'
 import TransferStatus from './Dashboard/TransferStatus'
+import Details from './Dashboard/Details'
 
 export {
     SignIn,
@@ -35,5 +36,6 @@ export {
     AddPhone,
     InputAmount,
     InputPin,
-    TransferStatus
+    TransferStatus,
+    Details
 }

@@ -60,7 +60,11 @@ const InputAmount = (props) => {
         <PlainCard title="Balance Left" content={userdata.balance ? <Text>Rp {currency(parseInt(userdata.balance))}</Text> : null} />
         <PlainCard title="Date & Time" content={historyId ? new Date(historyId?.created_at).toDateString() : null} />
         <PlainCard title="Notes" content={note ? note : null} />
+        <View style={{marginHorizontal:10}}>
+        <Text style={{fontFamily:"NunitoSans-Bold"}}>Transfer To</Text>
         <UserCard photo={photo} name={name} phone={phone} />
+          
+        </View>
       </ScrollView>
 
       <Button

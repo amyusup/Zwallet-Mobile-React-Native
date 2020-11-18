@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, ScrollView, StatusBar} from 'react-native';
+import {View, Text, ScrollView, StatusBar, TouchableOpacity} from 'react-native';
 import color from '../../../styles/constant';
 import s from '../style';
 import HistoryCard from '../../../components/Card/History';

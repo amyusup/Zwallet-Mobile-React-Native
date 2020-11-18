@@ -54,7 +54,7 @@ const Main = (props) => {
   React.useEffect(() => {
     dispatch(UserLoad(token));
     dispatch(getHistories(token));
-  }, [dispatch, token]);
+  }, [dispatch, token, balance ]);
 
   return (
     <>
@@ -73,11 +73,11 @@ const Main = (props) => {
           />
         </TouchableOpacity>
 
-        <View style={s.mainCard}>
+        <TouchableOpacity activeOpacity={0.8} onPress={()=>props.navigation.navigate('Details')} style={s.mainCard}>
           <Text style={s.textWhite}>Balance</Text>
           <Text style={s.textWhiteXl}>Rp {currency(parseInt(balance))}</Text>
           <Text style={s.textWhite}>{phone ? `+62 ${phone}` : '-'}</Text>
-        </View>
+        </TouchableOpacity>
         <View style={{flexDirection: 'row',justifyContent:"space-between", padding: 10}}>
           <Button
             icon="arrow-up"
