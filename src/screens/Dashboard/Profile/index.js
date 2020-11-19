@@ -94,7 +94,7 @@ const index = (props) => {
           icon="arrow-right"
         />
         <ButtonProfile
-          onPress={() => props.navigation.navigate('Main')}
+          onPress={() => props.navigation.navigate('CheckPin')}
           text="Change PIN"
           icon="arrow-right"
         />

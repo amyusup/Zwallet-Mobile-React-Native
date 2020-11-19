@@ -19,6 +19,8 @@ import InputPin from './Dashboard/InputPin'
 import TransferStatus from './Dashboard/TransferStatus'
 import Details from './Dashboard/Details'
 import ChangePassword from './Dashboard/ChangePassword'
+import CheckPin from './Dashboard/CheckPin'
+import ChangePin from './Dashboard/ChangePin'
 
 export {
     SignIn,
@@ -39,5 +41,7 @@ export {
     InputPin,
     TransferStatus,
     Details,
-    ChangePassword
+    ChangePassword,
+    CheckPin,
+    ChangePin
 }

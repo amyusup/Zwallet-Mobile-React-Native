@@ -250,8 +250,33 @@ export const createPin = (token, pin, props) => (dispatch) => {
         },
       },
     )
-    .then((res) => props.navigation.navigate('PinSuccess'))
-    .catch((err) => handleError(err, dispatch));
+    .then((res) => {
+      props.navigation.navigate('Profile')
+      ToastAndroid.show(res.data.message, ToastAndroid.SHORT)
+    })
+    .catch((err) => {
+      handleError(err, dispatch)
+      ToastAndroid.show(res.data.message, ToastAndroid.SHORT)
+    });
+};
+export const checkPin = (token, pin, props) => (dispatch) => {
+  dispatch(options(SETUSERERROR, ''));
+
+  axios
+    .patch(
+      '/users/check-pin',
+      {pin},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    )
+    .then((res) => props.navigation.navigate('ChangePin'))
+    .catch((err) => {
+      handleError(err, dispatch)
+      ToastAndroid.show(res.data.message, ToastAndroid.SHORT);
+    })
 };
 
 export const getTopup = (token) => (dispatch) => {
