@@ -70,6 +70,7 @@ const Main = (props) => {
             icon="bell-outline"
             size={30}
             style={{marginLeft: 'auto'}}
+            onPress={()=>props.navigation.navigate("Notification")}
           />
         </TouchableOpacity>
 
@@ -118,8 +119,8 @@ const Main = (props) => {
             return (
               <HistoryCard
               key={index}
-                photo={item.photo}
-                name={item.name}
+                photo={item.photo_receiver == photo ? item.photo:item.photo_receiver}
+                name={item.type === 'transfer' ? (item.name_receiver==name?item.name:item.name_receiver) : item.va_type}
                 type={item.type}
                 isIncome={item.is_income}
                 amount={

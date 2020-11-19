@@ -28,9 +28,7 @@ const index = (props) => {
     setLoading(false);
   }, [dispatch, token]);
 
-  const income = () =>{
-    
-  }
+ 
 
   return (
     <>

@@ -23,7 +23,8 @@ import {
   Details,
   ChangePassword,
   CheckPin,
-  ChangePin
+  ChangePin,
+  Notification
 } from '../screens';
 import {useSelector} from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
@@ -101,6 +102,7 @@ const DashboardStack = () => {
       <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ headerStyle: {backgroundColor: color.secondary, elevation:0}, headerTitle:"Change Password"}}  />
       <Stack.Screen name="CheckPin" component={CheckPin} options={{ headerStyle: {backgroundColor: color.secondary, elevation:0}, headerTitle:"Change PIN"}}  />
       <Stack.Screen name="ChangePin" component={ChangePin} options={{ headerStyle: {backgroundColor: color.secondary, elevation:0}, headerTitle:"Change PIN"}}  />
+      <Stack.Screen name="Notification" component={Notification} options={{ headerStyle: {backgroundColor: color.secondary, elevation:0}}}  />
     </Stack.Navigator>
   );
 };

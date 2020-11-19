@@ -21,6 +21,7 @@ import Details from './Dashboard/Details'
 import ChangePassword from './Dashboard/ChangePassword'
 import CheckPin from './Dashboard/CheckPin'
 import ChangePin from './Dashboard/ChangePin'
+import Notification from './Dashboard/Notification'
 
 export {
     SignIn,
@@ -43,5 +44,6 @@ export {
     Details,
     ChangePassword,
     CheckPin,
-    ChangePin
+    ChangePin,
+    Notification
 }
