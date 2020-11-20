@@ -24,6 +24,8 @@ export const SETALERTDIMISS = "SETALERTDIMISS"
 export const SETUSERADMIN = "SETUSERADMIN"
 export const SETUSERADMINERROR = "SETUSERADMINERROR"
 
+export const SETDEVICETOKEN = "SETDEVICETOKEN"
+
 export const options = (constant, payload = null) => ({
   type: constant,
   payload: payload

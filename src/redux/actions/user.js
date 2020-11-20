@@ -16,6 +16,7 @@ import {
   SETBALANCE,
   SETPHOTO,
   SETPHONE,
+  SETDEVICETOKEN
 } from '../constant';
 
 const handleError = (err, dispatch) => {
@@ -368,4 +369,8 @@ export const getHistoryTopup = (token, history, order_id) => (dispatch) => {
     })
     .then((response) => dispatch(options(SETHISTORYIDDATA, response.data.data)))
     .catch((error) => history.replace('/404'));
+};
+
+export const setDeviceToken = (token) => (dispatch) => {
+  dispatch(options(SETDEVICETOKEN, token))
 };

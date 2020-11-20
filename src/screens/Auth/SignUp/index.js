@@ -10,7 +10,7 @@ import {InputBorderedBottom} from '../../../components/Input';
 import s from '../style';
 import color from '../../../styles/constant';
 import {Button} from 'react-native-paper';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {AuthRegister} from '../../../redux/actions/auth';
 const SignUp = (props) => {
   const [name, setName] = React.useState('');
@@ -19,9 +19,11 @@ const SignUp = (props) => {
   const inputEmail = React.useRef();
   const inputPassword = React.useRef();
   const dispatch = useDispatch();
+  const { deviceToken } = useSelector(state => state.User)
+
 
   const _onSubmit = () => {
-    const data = {name, email, password};
+    const data = {name, email, password, device:deviceToken};
     dispatch(AuthRegister(data, props));
   };
   return (

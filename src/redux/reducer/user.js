@@ -11,6 +11,7 @@ import {
   SETHISTORYIDDATA,
   SETPHOTO,
   SETPHONE,
+  SETDEVICETOKEN,
   // SETPAYMENTTOKEN,
 } from '../constant'
 
@@ -26,7 +27,8 @@ const initState = {
   historyId: {},
   findUser: [],
   topup: [],
-  findId: {}
+  findId: {},
+  deviceToken:""
 }
 
 const authReducer = (state = initState, action) => {
@@ -112,6 +114,12 @@ const authReducer = (state = initState, action) => {
       return {
         ...state,
         historyId: payload
+      }
+    case SETDEVICETOKEN:
+      return {
+        ...state,
+        deviceToken: payload
+        
       }
 
     // case SETPAYMENTTOKEN:

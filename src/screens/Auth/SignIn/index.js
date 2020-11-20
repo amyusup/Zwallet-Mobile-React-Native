@@ -10,16 +10,17 @@ import {InputBorderedBottom} from '../../../components/Input';
 import s from '../style';
 import color from '../../../styles/constant';
 import {Button} from 'react-native-paper';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {AuthLogin} from '../../../redux/actions/auth';
 const SignIn = (props) => {
   const [email, setEmail] = React.useState('admin@gmail.com');
   const [password, setPassword] = React.useState('123123');
   const inputPassword = React.useRef()
   const dispatch = useDispatch();
+  const { deviceToken } = useSelector(state => state.User)
 
   const _onSubmit = () => {
-    dispatch(AuthLogin({email, password}));
+    dispatch(AuthLogin({email, password, device:deviceToken}));
   };
   return (
     <>

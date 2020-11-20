@@ -30,42 +30,46 @@ import {useSelector} from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 import color from '../styles/constant'
 import messaging from '@react-native-firebase/messaging';
+import { useDispatch } from 'react-redux'
+import { setDeviceToken } from '../redux/actions/user'
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const AuthStack = () => {
-  const [initialRoute, setInitialRoute] = React.useState('Main');
-  const [loading, setLoading] = React.useState(true);
+  // const [initialRoute, setInitialRoute] = React.useState('Main');
+  // const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
     // Assume a message-notification contains a "type" property in the data payload of the screen to open
 
-    messaging().onNotificationOpenedApp(remoteMessage => {
-      console.log(
-        'Notification caused app to open from background state:',
-        remoteMessage.notification,
-      );
-      navigation.navigate(remoteMessage.data.type);
-    });
+    // messaging().onNotificationOpenedApp(remoteMessage => {
+    //   console.log(
+    //     'Notification caused app to open from background state:',
+    //     remoteMessage.notification,
+    //   );
+    //   navigation.navigate(remoteMessage.data.type);
+    // });
 
     // Check whether an initial notification is available
-    messaging()
-      .getInitialNotification()
-      .then(remoteMessage => {
-        if (remoteMessage) {
-          console.log(
-            'Notification caused app to open from quit state:',
-            remoteMessage.notification,
-          );
-          setInitialRoute(initialRoute); // e.g. "Settings"
-        }
-        setLoading(false);
-      });
+    // messaging()
+    //   .getInitialNotification()
+    //   .then(remoteMessage => {
+    //     if (remoteMessage) {
+    //       console.log(
+    //         'Notification caused app to open from quit state:',
+    //         remoteMessage.notification,
+    //       );
+    //       setInitialRoute(initialRoute); // e.g. "Settings"
+    //     }
+    //     setLoading(false);
+    //   });
+
+     
   }, []);
 
-  if (loading) {
-    return null;
-  }
+  // if (loading) {
+  //   return null;
+  // }
   return (
     <Stack.Navigator>
       <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}}
@@ -107,8 +111,16 @@ const DashboardStack = () => {
   );
 };
 const MainNavigator = (props) => {
+  const dispatch = useDispatch()
   React.useEffect(() => {
     SplashScreen.hide();
+
+    messaging()
+    .getToken()
+    .then(token => {
+      // alert(token);
+      dispatch(setDeviceToken(token))
+    });
   }, []);
   const {isLogin} = useSelector((state) => state.Auth);
   return (

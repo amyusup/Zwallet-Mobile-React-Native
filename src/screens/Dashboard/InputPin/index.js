@@ -12,6 +12,7 @@ const InputPin = (props) => {
   const date = new Date().toISOString().split("T")[0];
   const dispatch = useDispatch()
   const { token } = useSelector(state => state.Auth)
+ 
 
   const _onSubmit = async () => {
     const data = { id, note, pin, total: amount }
