@@ -44,11 +44,11 @@ export const UserLoad = (token) => (dispatch) => {
     });
 };
 
-export const getHistories = (token, offset = 1, limit = 4, reset = true) => (dispatch) => {
+export const getHistories = (token, offset = 1, limit = 4, reset = true, orderBy) => (dispatch) => {
   dispatch(options(SETUSERERROR, ''));
 
   axios
-    .get(`/users/histories?offset=${offset}&limit=${limit}`, {
+    .get(`/users/histories?offset=${offset}&limit=${limit}&orderBy=${orderBy}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

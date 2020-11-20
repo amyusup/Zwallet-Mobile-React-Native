@@ -19,6 +19,7 @@ const index = (props) => {
 
   const {token} = useSelector((state) => state.Auth);
   const {userdata, history, error} = useSelector((state) => state.User);
+  const { name, photo } = userdata
 
   const dispatch = useDispatch();
 
@@ -73,8 +74,9 @@ const index = (props) => {
             return (
               <HistoryCard
                 key={index}
-                photo={item.photo}
-                name={item.name}
+                photo={item.photo_receiver == photo ? item.photo:item.photo_receiver}
+                name={item.type === 'transfer' ? (item.name_receiver==name?item.name:item.name_receiver) : item.va_type}
+               
                 type={item.type}
                 isIncome={item.is_income}
                 amount={
@@ -84,43 +86,6 @@ const index = (props) => {
             );
           })
         )}
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            marginVertical: 15,
-          }}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: color.white,
-              padding: 10,
-              elevation: 10,
-              borderRadius: 10,
-            }}>
-            <Icons name="arrow-up" color={color.danger} size={30} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              backgroundColor: color.white,
-              padding: 10,
-              elevation: 10,
-              borderRadius: 10,
-            }}>
-            <Icons name="arrow-down" color={color.success} size={30} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              backgroundColor: color.white,
-              paddingVertical: 10,
-              paddingHorizontal:20,
-              elevation: 10,
-              borderRadius: 10,
-              justifyContent:"center",
-            }}>
-            <Text style={{color:color.primary, fontFamily:'NunitoSans-Bold'}}>Filter by Date</Text>
-          </TouchableOpacity>
-          
-        </View>
       </ScrollView>
     </>
   );
