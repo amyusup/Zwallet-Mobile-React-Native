@@ -7,7 +7,7 @@ import {Button} from 'react-native-paper';
 const ForgotPassword = (props) => {
   const [email, setEmail] = React.useState('')
   const _onSubmit = () => {
-    props.navigation.navigate('CreatePassword')
+    props.navigation.navigate('CreatePassword', {email:email})
   }
   return (
     <>
@@ -31,6 +31,7 @@ const ForgotPassword = (props) => {
           style={s.button}
           mode="contained"
           onPress={_onSubmit}
+          disabled={email.length < 1 ? true:false}
           >
           <Text style={{color: color.white}}>Confirm</Text>
         </Button>

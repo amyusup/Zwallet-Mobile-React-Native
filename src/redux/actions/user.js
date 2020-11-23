@@ -238,7 +238,7 @@ export const changePassword = (token, data, props) => (dispatch) => {
     })
 };
 
-export const createPin = (token, pin, props) => (dispatch) => {
+export const createPin = (token, pin, props, isLogin = false) => (dispatch) => {
   dispatch(options(SETUSERERROR, ''));
 
   axios
@@ -252,7 +252,8 @@ export const createPin = (token, pin, props) => (dispatch) => {
       },
     )
     .then((res) => {
-      props.navigation.navigate('Profile')
+      isLogin? props.navigation.navigate('Profile'):props.navigation.navigate('SignIn')
+      
       ToastAndroid.show(res.data.message, ToastAndroid.SHORT)
     })
     .catch((err) => {

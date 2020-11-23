@@ -19,11 +19,12 @@ const SignUp = (props) => {
   const inputEmail = React.useRef();
   const inputPassword = React.useRef();
   const dispatch = useDispatch();
-  const { deviceToken } = useSelector(state => state.User)
+  // const { deviceToken } = useSelector(state => state.User)
 
 
   const _onSubmit = () => {
-    const data = {name, email, password, device:deviceToken};
+    const data = {name, email, password};
+    // const data = {name, email, password, device:deviceToken};
     dispatch(AuthRegister(data, props));
   };
   return (

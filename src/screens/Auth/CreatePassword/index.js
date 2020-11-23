@@ -4,17 +4,24 @@ import {InputBorderedBottom} from '../../../components/Input';
 import s from '../style';
 import color from '../../../styles/constant';
 import {Button} from 'react-native-paper';
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from 'react-redux';
+import {ForgotPassword} from '../../../redux/actions/auth';
 const CreatePassword = (props) => {
+  const {email} = props.route.params;
   const [password, setPassword] = React.useState('');
   const [passwordRepeat, setPasswordRepeat] = React.useState('');
+
+  const dispatch = useDispatch();
   const _onSubmit = () => {
-    props.navigation.navigate("SignIn")
-  }
+    // alert(email)
+    // props.navigation.navigate("SignIn")
+    const data = {email, password, passwordRepeat};
+    dispatch(ForgotPassword(data, props));
+  };
   return (
     <>
       <StatusBar backgroundColor={color.secondary} barStyle="dark-content" />
-      <ScrollView style={s.page} keyboardShouldPersistTaps='always'>
+      <ScrollView style={s.page} keyboardShouldPersistTaps="always">
         <Text style={[s.brand]}>ZWALLET</Text>
         <View style={[s.radiusTop, s.card]}>
           <Text style={s.title}>Reset Password</Text>
@@ -37,7 +44,16 @@ const CreatePassword = (props) => {
             style={{marginVertical: 10}}
             secureTextEntry={true}
           />
-          <Button uppercase={false} style={s.button} mode="contained" onPress={_onSubmit}>
+          <Button
+            uppercase={false}
+            style={s.button}
+            mode="contained"
+            onPress={_onSubmit}
+            disabled={
+              password.length < 1 ||
+              passwordRepeat.length < 1 ||
+              password !== passwordRepeat
+            }>
             <Text style={{color: color.white}}>Reset Password</Text>
           </Button>
         </View>

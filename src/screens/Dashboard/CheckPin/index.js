@@ -38,7 +38,7 @@ const index = (props) => {
         mode="contained"
         disabled={pin.length < 6 ? true : false}
         onPress={_onSubmit}>
-        <Text style={{color: color.white}}>Transfer Now</Text>
+        <Text style={{color: color.white}}>Continue</Text>
       </Button>
     </>
   );

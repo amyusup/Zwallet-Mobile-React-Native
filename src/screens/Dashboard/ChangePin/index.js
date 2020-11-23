@@ -9,10 +9,10 @@ import { createPin } from '../../../redux/actions/user'
 const InputPin = (props) => {
   const [pin, setPin] = React.useState('');
   const dispatch = useDispatch()
-  const { token } = useSelector(state => state.Auth)
+  const { token, isLogin } = useSelector(state => state.Auth)
 
   const _onSubmit =  () => {
-    dispatch(createPin(token, pin, props))
+    dispatch(createPin(token, pin, props, isLogin))
   }
   return (
     <>
@@ -39,7 +39,7 @@ const InputPin = (props) => {
           onPress={_onSubmit}
 
           >
-          <Text style={{color:color.white}}>Transfer Now</Text>
+          <Text style={{color:color.white}}>Change PIN</Text>
         </Button>
     </>
   );
