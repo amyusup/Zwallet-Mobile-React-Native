@@ -15,6 +15,7 @@ import { store, persistor } from './src/redux/store'
 import {PersistGate} from 'redux-persist/integration/react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import {typography} from './src/styles/typography';
+// import { io } from 'socket.io-client';
 
 typography();
 
@@ -28,7 +29,12 @@ const theme = {
 };
 
 const App = () => {
-  
+  // const socket = io('http://192.168.43.149:4444/api/v1')
+  // React.useEffect(()=>{
+  //   socket.on("hello", (arg)=>{
+  //     console.log(arg, "asdasdsadadsadadasdadadasd")
+  //   })
+  // },[])
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

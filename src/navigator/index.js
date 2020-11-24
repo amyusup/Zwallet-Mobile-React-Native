@@ -32,6 +32,7 @@ import color from '../styles/constant'
 import messaging from '@react-native-firebase/messaging';
 import { useDispatch } from 'react-redux'
 import { setDeviceToken } from '../redux/actions/user'
+import { io } from 'socket.io-client';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -112,8 +113,35 @@ const DashboardStack = () => {
 };
 const MainNavigator = (props) => {
   const dispatch = useDispatch()
+  // const socket = io('http://192.168.43.149:4444')
+  
   React.useEffect(() => {
     SplashScreen.hide();
+
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state:',
+        remoteMessage.notification,
+      );
+      navigation.navigate(remoteMessage.data.type);
+    });
+
+    // Check whether an initial notification is available
+    messaging()
+      .getInitialNotification()
+      .then(remoteMessage => {
+        if (remoteMessage) {
+          console.log(
+            'Notification caused app to open from quit state:',
+            remoteMessage.notification,
+          );
+          // setInitialRoute(initialRoute); // e.g. "Settings"
+        }
+        // setLoading(false);
+      });
+
+    // get token
+  
 
     messaging()
     .getToken()
@@ -121,6 +149,15 @@ const MainNavigator = (props) => {
       // alert(token);
       dispatch(setDeviceToken(token))
     });
+
+    // // alert("asdsa")
+    // socket.on("refresh", (arg) => {
+    //   alert(arg); // world 
+    // });
+    // return () => {
+    //   socket.off('hello')
+    // }
+    // // console.log("testttttttttt")
   }, []);
   const {isLogin} = useSelector((state) => state.Auth);
   return (

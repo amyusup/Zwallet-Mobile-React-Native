@@ -54,7 +54,7 @@ const Main = (props) => {
   React.useEffect(() => {
     dispatch(UserLoad(token));
     dispatch(getHistories(token));
-  }, [dispatch, token, balance ]);
+  }, [dispatch, token, balance, userdata ]);
 
   return (
     <>
