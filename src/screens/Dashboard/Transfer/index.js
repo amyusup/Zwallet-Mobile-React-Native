@@ -39,7 +39,7 @@ const index = (props) => {
   return (
     <>
       <StatusBar backgroundColor={color.secondary} barStyle="dark-content" />
-      <ScrollView style={s.page} onScrollEndDrag={() => loadMore()}>
+      <ScrollView style={[s.page, {height:'100%'}]} onScrollEndDrag={() => loadMore()}>
         <View style={{marginHorizontal: 20}}>
           <InputBordered
             icon="search"

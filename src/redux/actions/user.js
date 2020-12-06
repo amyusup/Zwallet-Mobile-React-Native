@@ -89,7 +89,7 @@ export const getFindUsers = (token, offset = 1, name = null, reset = true) => (
   dispatch(options(SETUSERERROR, ''));
 
   axios
-    .get(`/users/search?q=${name}&offset=${offset}&limit=4`, {
+    .get(`/users/search?q=${name}&offset=${offset}&limit=6`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

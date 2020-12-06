@@ -22,6 +22,7 @@ const SignIn = (props) => {
   const { deviceToken } = useSelector(state => state.User)
 
   const _onSubmit = () => {
+    console.log('aaa')
     dispatch(AuthLogin({email, password, device:deviceToken}));
   };
   return (

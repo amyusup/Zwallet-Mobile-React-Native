@@ -39,6 +39,8 @@ const Main = (props) => {
     return true;
   };
   React.useEffect(() => {
+    // dispatch(UserLoad(token));
+
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       backAction,
@@ -48,13 +50,13 @@ const Main = (props) => {
     return () => {
       backHandler.remove();
     };
-  }, [exitApp]);
+  }, []);
 
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(UserLoad(token));
     dispatch(getHistories(token));
-  }, [dispatch, token, balance, userdata ]);
+  }, [dispatch, token, balance, ]);
 
   return (
     <>
