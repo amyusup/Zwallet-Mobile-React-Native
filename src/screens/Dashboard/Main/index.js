@@ -50,13 +50,14 @@ const Main = (props) => {
     return () => {
       backHandler.remove();
     };
-  }, []);
+  }, [exitApp]);
 
   const dispatch = useDispatch();
   React.useEffect(() => {
+    // dispatch(UserLoad(token));
     dispatch(UserLoad(token));
     dispatch(getHistories(token));
-  }, [dispatch, token, balance, ]);
+  }, [dispatch, token, balance, userdata]);
 
   return (
     <>
