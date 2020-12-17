@@ -49,28 +49,12 @@ Zwallet merupakan aplikasi mobile dompet digital yang berguna melakukan transaks
 
 <img src="https://cdn.discordapp.com/attachments/785305535292899332/788984654854094898/Screenshot_2020-12-17-11-22-33-22_6ccc36aae7725186ae77289286332e7e.jpg" width="250">
 
-### Payment Link
-
-<img src="https://i.ibb.co/4js2G5j/7-linking-to-payment.jpg" width="250">
-
-### Chat
-
-<img src="https://i.ibb.co/KKzQvzg/4-chat.jpg" width="250">
-
-### Notification
-
-<img src="https://i.ibb.co/qm20xg3/5-notifikasi.jpg" width="250">
-
-### Profile
-
-<img src="https://i.ibb.co/tXdwydy/3-profile.jpg" width="250">
-
 ## Setup
 
 `yarn`
 
-<br/>`yarn android`
+<br/> `yarn android`
 
 ## Sources
 
-https://drive.google.com/drive/folders/1LbsSXwYg_otxQytxdhXrhXahGvq3buxP
+https://bit.ly/zwallet-mobile-app
