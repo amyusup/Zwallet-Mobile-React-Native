@@ -1,6 +1,6 @@
 # Zwallet Mobile - Ewallet App
 
-Flight with your own account
+Lakukan transaksi dengan mudah menggunakan aplikasi zwallet.
 
 ## Table of contents
 
